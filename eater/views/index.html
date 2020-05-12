@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="jp">
+<head>
+  <meta charset="UTF-8">
+  <title>今週は何食べる？</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <style>
+    input{font-size: 20px;}
+    li{list-style: none;}
+  </style>
+</head>
+<body>
+  <h1>今週は何食べる？</h1>
+  <ul>
+  % for recipeLists in recipeList:
+    <li class="weekday">
+      <h2>{{ !recipeLists[0]}}</h2>
+      <ul>
+        <li>
+          <p>---朝---</p>
+          {{ !recipeLists[1]}}
+        </li>
+        <li>
+          <p>---昼---</p>
+          {{ !recipeLists[2]}}
+        </li>
+        <li>
+          <p>---夜---</p>
+          {{ !recipeLists[3]}}
+        </li>
+      </ul>
+    </li>
+  % end
+</ul>
+</body>
+<script>
+  $(function () {
+    var result = $('h2').find('a');
+    result.attr('href', "https://cookpad.com" + result.attr('href'));
+    console.log( result[0] );
+  });
+</script>
+</html>
